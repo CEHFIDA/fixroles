@@ -2,10 +2,10 @@
 
 namespace selfreliance\fixroles\Models;
 
-use selfreliance\fixroles\Roles\Traits\Slugable;
+use selfreliance\fixroles\Traits\Slugable;
 use Illuminate\Database\Eloquent\Model;
-use selfreliance\fixroles\Roles\Traits\PermissionHasRelations;
-use selfreliance\fixroles\Roles\Contracts\PermissionHasRelations as PermissionHasRelationsContract;
+use selfreliance\fixroles\Traits\PermissionHasRelations;
+use selfreliance\fixroles\Contracts\PermissionHasRelations as PermissionHasRelationsContract;
 
 class Permission extends Model implements PermissionHasRelationsContract
 {
