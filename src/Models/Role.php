@@ -2,10 +2,10 @@
 
 namespace selfreliance\fixroles\Models;
 
-use Selfreliance\fixroles\Roles\Traits\Slugable;
+use Selfreliance\fixroles\Traits\Slugable;
 use Illuminate\Database\Eloquent\Model;
-use Selfreliance\fixroles\Roles\Traits\RoleHasRelations;
-use Selfreliance\fixroles\Roles\Contracts\RoleHasRelations as RoleHasRelationsContract;
+use Selfreliance\fixroles\Traits\RoleHasRelations;
+use Selfreliance\fixroles\Contracts\RoleHasRelations as RoleHasRelationsContract;
 
 class Role extends Model implements RoleHasRelationsContract
 {
