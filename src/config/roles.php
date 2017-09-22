@@ -40,8 +40,8 @@ return [
     */
 
     'models' => [
-        'role' => selfreliance\fixroles\Models\Role::class,
-        'permission' => selfreliance\fixroles\Models\Permission::class,
+        'role' => Selfreliance\fixroles\Models\Role::class,
+        'permission' => Selfreliance\fixroles\Models\Permission::class,
     ],
 
     /*
