@@ -12,8 +12,8 @@ composer require selfreliance/fixroles
 
 Config and migrations
 ```php
-php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag=config
-php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag=migrations
+php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag="migrations"
 ```
 And do not forget about 
 ```php 
