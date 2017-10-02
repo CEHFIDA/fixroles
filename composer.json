@@ -16,6 +16,13 @@
             "email": "lemmas.online@gmail.com"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Selfreliance\\Fixroles\\RolesServiceProvider"
+            ]
+        }
+    },
     "require": {
         "php": ">=5.5.9",
         "selfreliance/adminamazing": ">=1.0.0",
