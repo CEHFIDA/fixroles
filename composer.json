@@ -1,7 +1,7 @@
 {
     "name": "selfreliance/fixroles",
     "type": "library",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "Powerful package for handling roles and permissions in Laravel 5 [FIX]",
     "keywords": ["laravel", "roles"],
     "homepage": "https://github.com/selfrelianceme/fixroles",
@@ -19,7 +19,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Selfreliance\\Fixroles\\RolesServiceProvider"
+                "Selfreliance\\fixroles\\RolesServiceProvider"
             ]
         }
     },
@@ -31,7 +31,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Selfreliance\\Fixroles\\": "src/"
+            "Selfreliance\\fixroles\\": "src/"
         }
     }
 }
