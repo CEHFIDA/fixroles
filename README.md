@@ -46,7 +46,7 @@ php artisan db:seed --class="CreateOrAttachAdmin" // create admin role and attac
 ### Creating Roles
 
 ```php
-use Selfreliance\Fixroles\Models\Role;
+use Selfreliance\fixroles\Models\Role;
 
 $adminRole = Role::create([
     'name' => 'Admin',
