@@ -10,14 +10,25 @@ Install via composer
 composer require selfreliance/fixroles
 ```
 
-Config and migrations
+Config, migrations and seed
 ```php
-php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag="config"
-php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag="config" --force
+php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag="migrations" --force
+php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag="seed" --force
 ```
+
+Edit model User (App/User.php)
+```php
+use Selfreliance\fixroles\Traits\HasRoleAndPermission;
+use Selfreliance\fixroles\Contracts\HasRoleAndPermission as HasRoleAndPermissionContract;
+
+class User extends Authenticatable implements HasRoleAndPermissionContract
+```
+
 And do not forget about 
 ```php 
-php artisan migrate 
+php artisan migrate
+php artisan db:seed --class="CreateOrAttachAdmin" // create admin role and attach to user (id=1)
 ```
 
 ## Usage
