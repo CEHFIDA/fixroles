@@ -23,6 +23,10 @@ class CreateOrAttachAdmin extends Seeder
 
             $user = User::findOrFail(1);
             $user->attachRole($adminRole);
+
+            DB::table('admin__section')->insert(
+                ['name' => 'admin', 'privilegion' => ["admin", "admin/adminrole", "admin/feedback", "admin/blog", "admin/users", "admin/tickets"]]
+            );
     	}
     }
 }
