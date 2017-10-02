@@ -12,9 +12,9 @@ composer require selfreliance/fixroles
 
 Config, migrations and seed
 ```php
-php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag="config" --force
-php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag="migrations" --force
-php artisan vendor:publish --provider="Selfreliance\Fixroles\RolesServiceProvider" --tag="seed" --force
+php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvider" --tag="config" --force
+php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvider" --tag="migrations" --force
+php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvider" --tag="seed" --force
 ```
 
 Edit model User (App/User.php)
