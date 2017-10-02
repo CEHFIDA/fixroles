@@ -27,14 +27,6 @@ class User extends Authenticatable implements HasRoleAndPermissionContract
 
 Edit model Kernel (App/Http/Kernel.php)
 ```php
-add to protected $routeMiddleware
-
-/*
-    'role' => \Bican\Roles\Middleware\VerifyRole::class,
-    'permission' => \Bican\Roles\Middleware\VerifyPermission::class,
-    'level' => \Bican\Roles\Middleware\VerifyLevel::class,
-*/
-
 transfer from protected $middlewareGroups to protected $middleware
 
 /*
