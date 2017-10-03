@@ -33,6 +33,9 @@ transfer from protected $middlewareGroups to protected $middleware
     \App\Http\Middleware\EncryptCookies::class,
     \Illuminate\Session\Middleware\StartSession::class,
 */
+
+add to $routeMiddleware
+'CheckAccess' => \App\Http\Middleware\CheckAccess::class
 ```
 
 And do not forget about 
