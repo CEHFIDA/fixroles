@@ -35,7 +35,10 @@ transfer from protected $middlewareGroups to protected $middleware
 */
 
 add to $routeMiddleware
-'CheckAccess' => \App\Http\Middleware\CheckAccess::class
+
+/*
+    'CheckAccess' => \App\Http\Middleware\CheckAccess::class
+*/
 ```
 
 And do not forget about 
