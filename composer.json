@@ -1,7 +1,7 @@
 {
     "name": "selfreliance/fixroles",
     "type": "library",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "description": "Powerful package for handling roles and permissions in Laravel 5 [FIX]",
     "keywords": ["laravel", "roles"],
     "homepage": "https://github.com/selfrelianceme/fixroles",
@@ -27,6 +27,7 @@
         "php": ">=5.5.9",
         "selfreliance/adminamazing": ">=1.0.0",
         "selfreliance/adminrole": ">=1.0.0",
+        "selfreliance/iusers": ">=1.0.0",
         "illuminate/support": "~5.0"
     },
     "autoload": {

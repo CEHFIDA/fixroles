@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Selfreliance\adminrole\AdminRoleController;
 use Selfreliance\fixroles\Models\Role;
 use App\User;
+use Config;
 
 class CreateOrAttachAdmin extends Seeder
 {
@@ -14,7 +15,7 @@ class CreateOrAttachAdmin extends Seeder
      */
     public function run()
     {
-    	if(!AdminRoleController::checkExitsRole('Admin')) // if role is not created
+    	if(!AdminRoleController::checkExitsRole('admin')) // if role is not created
     	{
             $adminRole = Role::create([
                 'name' => 'Admin',
@@ -24,8 +25,13 @@ class CreateOrAttachAdmin extends Seeder
             $user = User::findOrFail(1);
             $user->attachRole($adminRole);
 
+            $privilegions = array(
+                config('adminamazing.path'),
+                config('adminamazing.path')."/adminrole"
+            );
+
             \DB::table('admin__sections')->insert(
-                ['name' => 'admin', 'privilegion' => ["admin", "admin/adminrole", "admin/feedback", "admin/blog", "admin/users", "admin/tickets"]]
+                ['name' => 'admin', 'privilegion' => json_encode($privilegions)]
             );
     	}
     }

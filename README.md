@@ -18,15 +18,18 @@ php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvide
 ```
 
 Edit model User (App/User.php)
-```php
+```
 use Selfreliance\fixroles\Traits\HasRoleAndPermission;
 use Selfreliance\fixroles\Contracts\HasRoleAndPermission as HasRoleAndPermissionContract;
 
 class User extends Authenticatable implements HasRoleAndPermissionContract
+
+in class:
+use HasRoleAndPermission;
 ```
 
 Edit model Kernel (App/Http/Kernel.php)
-```php
+```
 transfer from protected $middlewareGroups to protected $middleware
 
 /*
@@ -44,6 +47,7 @@ add to $routeMiddleware
 And do not forget about 
 ```php 
 php artisan migrate
+composer dump-autoload -o
 php artisan db:seed --class="CreateOrAttachAdmin" // create admin role and attach to user (id=1)
 ```
 
