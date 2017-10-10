@@ -14,7 +14,6 @@ Config, migrations and seed
 ```php
 php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvider" --tag="config" --force
 php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvider" --tag="migrations" --force
-php artisan vendor:publish --provider="Selfreliance\adminamazing\AdminAmazingServiceProvider" --tag="migrations" --force
 php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvider" --tag="seed" --force
 ```
 
