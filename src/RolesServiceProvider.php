@@ -20,11 +20,7 @@ class RolesServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/migrations/' => database_path('migrations')
         ], 'migrations');
-
-        $this->publishes([
-        	__DIR__. '/seed/CreateOrAttachAdmin.php' => database_path('seeds/CreateOrAttachAdmin.php')
-        ], 'seed');
-
+        
         $this->registerBladeExtensions();
     }
 
