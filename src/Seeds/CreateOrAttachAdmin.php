@@ -15,7 +15,7 @@ class CreateOrAttachAdmin extends Seeder
      */
     public function run()
     {
-    	if(!AdminRoleController::checkExitsRole('admin')) // if role is not created
+    	if(!AdminRoleController::checkExitsRole('Admin')) // if role is not created
     	{
             $accessible = array(
                 config('adminamazing.path'),
@@ -31,6 +31,11 @@ class CreateOrAttachAdmin extends Seeder
 
             $user = User::findOrFail(1);
             $user->attachRole($adminRole);
+            
+            \DB::table('admin__menu')->insert(
+                ['title' => 'Меню', 'package' => 'adminmenu', 'parent' => 0, 'sort' => 0],
+                ['title' => 'Роли', 'package' => 'adminrole', 'parent' => 0, 'sort' => 1]
+            );
     	}
     }
 }
