@@ -13,6 +13,7 @@ class DeleteUnnecessaryTables extends Migration
      */
     public function up()
     {
+        \DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         if(Schema::hasTable('admin__sections')){
             Schema::drop('admin__sections');
         }
@@ -25,6 +26,7 @@ class DeleteUnnecessaryTables extends Migration
         if(Schema::hasTable('permission_user')){
             Schema::drop('permission_user');
         }
+        \DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 
     /**
