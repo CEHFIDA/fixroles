@@ -18,14 +18,16 @@ php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvide
 ```
 
 Edit model User (App/User.php)
+```php
+use Selfreliance\fixroles\Traits\HasRole;
+use Selfreliance\fixroles\Contracts\HasRole as HasRoleContract;
+
+class User extends Authenticatable implements HasRole
 ```
-use Selfreliance\fixroles\Traits\HasRoleAndPermission;
-use Selfreliance\fixroles\Contracts\HasRoleAndPermission as HasRoleAndPermissionContract;
 
-class User extends Authenticatable implements HasRoleAndPermissionContract
-
+```
 in class:
-use HasRoleAndPermission;
+use HasRole;
 ```
 
 Edit model Kernel (App/Http/Kernel.php)
