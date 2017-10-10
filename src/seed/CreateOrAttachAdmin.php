@@ -17,22 +17,20 @@ class CreateOrAttachAdmin extends Seeder
     {
     	if(!AdminRoleController::checkExitsRole('admin')) // if role is not created
     	{
+            $accessible = array(
+                config('adminamazing.path'),
+                config('adminamazing.path')."/adminrole",
+                config('adminamazing.path')."/adminmenu"
+            );
+
             $adminRole = Role::create([
                 'name' => 'Admin',
-                'slug' => 'admin'
+                'slug' => 'admin',
+                'accessible_pages' => $accessible
             ]);
 
             $user = User::findOrFail(1);
             $user->attachRole($adminRole);
-
-            $privilegions = array(
-                config('adminamazing.path'),
-                config('adminamazing.path')."/adminrole"
-            );
-
-            \DB::table('admin__sections')->insert(
-                ['name' => 'admin', 'privilegion' => json_encode($privilegions)]
-            );
     	}
     }
 }

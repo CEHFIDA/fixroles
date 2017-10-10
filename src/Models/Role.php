@@ -4,19 +4,17 @@ namespace selfreliance\fixroles\Models;
 
 use Selfreliance\fixroles\Traits\Slugable;
 use Illuminate\Database\Eloquent\Model;
-use Selfreliance\fixroles\Traits\RoleHasRelations;
-use Selfreliance\fixroles\Contracts\RoleHasRelations as RoleHasRelationsContract;
 
-class Role extends Model implements RoleHasRelationsContract
+class Role extends Model
 {
-    use Slugable, RoleHasRelations;
+    use Slugable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'slug', 'description', 'level'];
+    protected $fillable = ['name', 'slug', 'accessible'];
 
     /**
      * Create a new model instance.
