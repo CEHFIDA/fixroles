@@ -20,11 +20,8 @@ use Selfreliance\fixroles\Traits\HasRole;
 use Selfreliance\fixroles\Contracts\HasRole as HasRoleContract;
 
 class User extends Authenticatable implements HasRole
-```
-
-```
-in class:
-use HasRole;
+{
+	use HasRole;
 ```
 
 Edit model Kernel (App/Http/Kernel.php)
