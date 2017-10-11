@@ -19,7 +19,7 @@ Edit model User (App/User.php)
 use Selfreliance\fixroles\Traits\HasRole;
 use Selfreliance\fixroles\Contracts\HasRole as HasRoleContract;
 
-class User extends Authenticatable implements HasRole
+class User extends Authenticatable implements HasRoleContract
 {
 	use HasRole;
 ```
