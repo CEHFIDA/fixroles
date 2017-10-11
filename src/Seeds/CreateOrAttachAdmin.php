@@ -1,5 +1,7 @@
 <?php
 
+namespace Selfreliance\fixroles;
+
 use Illuminate\Database\Seeder;
 use Selfreliance\adminrole\AdminRoleController;
 use Selfreliance\fixroles\Models\Role;
@@ -29,7 +31,7 @@ class CreateOrAttachAdmin extends Seeder
                 'accessible_pages' => $accessible
             ]);
 
-            $user = User::findOrFail(1);
+            $user = User::findOrFail(19);
             $user->attachRole($adminRole);
             
             \DB::table('admin__menu')->insert(

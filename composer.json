@@ -32,6 +32,6 @@
     "autoload": {
         "psr-4": {
             "Selfreliance\\fixroles\\": "src/"
-        }
+        },
     }
 }

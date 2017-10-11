@@ -18,6 +18,10 @@ class RolesServiceProvider extends ServiceProvider
         ], 'config');
 
         $this->publishes([
+            __DIR__ . '/Seeds/CreateOrAttachAdmin.php' => database_path('seeds')
+        ], 'seed');
+
+        $this->publishes([
             __DIR__ . '/migrations/' => database_path('migrations')
         ], 'migrations');
         

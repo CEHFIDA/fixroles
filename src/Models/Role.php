@@ -14,7 +14,7 @@ class Role extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'slug', 'accessible'];
+    protected $fillable = ['name', 'slug', 'accessible_pages'];
 
     /**
      * Create a new model instance.

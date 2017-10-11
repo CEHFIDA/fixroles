@@ -1,7 +1,4 @@
 # Roles And Permissions (Fix for Laravel 5.3+)
-- [Creating Roles](#creating-roles)
-- [Attaching And Detaching Roles](#attaching-and-detaching-roles)
-- [Checking For Roles](#checking-for-roles)
 
 ## How to install
 
@@ -12,9 +9,9 @@ composer require selfreliance/fixroles
 
 Config, migrations and seed
 ```php
-php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvider" --tag="config" --force
-php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvider" --tag="migrations" --force
-php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvider" --tag="seed" --force
+php artisan vendor:publish --provider="Selfreliance\fixroles\RolesServiceProvider" --force
+php artisan migrate
+php artisan db:seed --class="CreateOrAttachAdmin"
 ```
 
 Edit model User (App/User.php)
@@ -44,11 +41,4 @@ add to $routeMiddleware
 /*
     'CheckAccess' => \App\Http\Middleware\CheckAccess::class
 */
-```
-
-And do not forget about 
-```php 
-php artisan migrate
-composer dump-autoload -o
-php artisan db:seed --class="Selfreliance\fixroles\Seeds\CreateOrAttachAdmin" // create admin role and attach to user (id=1)
 ```
