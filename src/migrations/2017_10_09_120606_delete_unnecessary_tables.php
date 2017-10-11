@@ -18,13 +18,13 @@ class DeleteUnnecessaryTables extends Migration
             Schema::drop('admin__sections');
         }
         if(Schema::hasTable('permissions')){
-            Schema::dropIfExits('permissions');
+            Schema::dropIfExists('permissions');
         }
         if(Schema::hasTable('permission_role')){
-            Schema::dropIfExits('permission_role');
+            Schema::dropIfExists('permission_role');
         }
         if(Schema::hasTable('permission_user')){
-            Schema::dropIfExits('permission_user');
+            Schema::dropIfExists('permission_user');
         }
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
