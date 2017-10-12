@@ -33,8 +33,8 @@ class CreateOrAttachAdmin extends Seeder
             $user->attachRole($adminRole);
             
             \DB::table('admin__menu')->insert([
-                ['title' => 'Меню', 'package' => 'adminmenu', 'parent' => 0, 'sort' => 0],
-                ['title' => 'Роли', 'package' => 'adminrole', 'parent' => 0, 'sort' => 1]
+                ['title' => 'Меню', 'package' => 'adminmenu', 'icon' => 'mdi mdi-menu', 'parent' => 0, 'sort' => 0],
+                ['title' => 'Роли', 'package' => 'adminrole', 'icon' => 'mdi mdi-key', 'parent' => 0, 'sort' => 1]
             ]);
     	}
     }
