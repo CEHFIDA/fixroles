@@ -47,7 +47,7 @@ class RolesServiceProvider extends ServiceProvider
     {
         $blade = $this->app['view']->getEngineResolver()->resolve('blade')->getCompiler();
         
-        $blade->directive('checkadmin', function () {
+        $blade->directive('checkadmin', function ($prefix) {
             return "<?php if (Auth::check() && Auth::user()->checkAdmin()): ?>";
         });
 

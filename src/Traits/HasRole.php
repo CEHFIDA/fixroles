@@ -142,7 +142,7 @@ trait HasRole
     {
         $roles = $this->roles()->get();
         if(count($roles) > 0){
-            if(in_array("admin", json_decode($roles[0]->accessible_pages))) return true;
+            if(in_array(config('adminamazing.path'), json_decode($roles[0]->accessible_pages))) return true;
         }
         return false;        
     }
