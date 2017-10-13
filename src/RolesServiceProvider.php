@@ -46,12 +46,12 @@ class RolesServiceProvider extends ServiceProvider
     protected function registerBladeExtensions()
     {
         $blade = $this->app['view']->getEngineResolver()->resolve('blade')->getCompiler();
-
-        $blade->directive('role', function ($expression) {
-            return "<?php if (Auth::check() && Auth::user()->isRole{$expression}): ?>";
+        
+        $blade->directive('checkadmin', function () {
+            return "<?php if (Auth::check() && Auth::user()->checkAdmin()): ?>";
         });
 
-        $blade->directive('endrole', function () {
+        $blade->directive('endcheck', function () {
             return "<?php endif; ?>";
         });
     }

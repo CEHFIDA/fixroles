@@ -75,4 +75,11 @@ interface HasRole
      * @return int
      */
     public function detachAllRoles();
+
+    /**
+     * Check if the user admin
+     *
+     * @return bool
+     */
+    public function checkAdmin();
 }

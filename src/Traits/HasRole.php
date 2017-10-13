@@ -4,7 +4,6 @@ namespace selfreliance\fixroles\Traits;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
-use InvalidArgumentException;
 
 trait HasRole
 {
@@ -132,6 +131,20 @@ trait HasRole
         $this->roles = null;
 
         return $this->roles()->detach();
+    }
+
+    /**
+     * Check if the user admin
+     *
+     * @return bool
+     */
+    public function checkAdmin()
+    {
+        $roles = $this->roles()->get();
+        if(count($roles) > 0){
+            if(in_array("admin", json_decode($roles[0]->accessible_pages))) return true;
+        }
+        return false;        
     }
 
     /**
