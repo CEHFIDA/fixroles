@@ -43,11 +43,10 @@ trait HasRole
      */
     public function attachRole($role)
     {
-        $this->role = null;
-
         $role = $this->getRole($role);
         if($role->id)
         {
+            $this->role = null;
             $this->role_id = $role->id;
             return $this->save();
         }
@@ -63,11 +62,10 @@ trait HasRole
      */
     public function detachRole($role)
     {
-        $this->role = null;
-
         if($this->role_id == $this->getRole($role)->id)
         {
-            $this->role_id = null;
+        	$this->role = null;
+            $this->role_id = -1;
             return $this->save();
         }
 

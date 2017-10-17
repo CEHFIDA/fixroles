@@ -21,7 +21,7 @@ class UpdateTableUsersAddRoleID extends Migration
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
         if(!Schema::hasColumn('users', 'role_id')){
             Schema::table('users', function (Blueprint $table) {
-                $table->tinyInteger('role_id')->default(null)->after('email');
+                $table->tinyInteger('role_id')->default(-1)->after('email');
             });
         }
     }
