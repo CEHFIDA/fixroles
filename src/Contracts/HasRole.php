@@ -34,7 +34,7 @@ interface HasRole
      *
      * @return bool
      */
-    public function detachRole($id);
+    public function detachRole();
 
     /**
      * Check if the user role have $prefix

@@ -57,19 +57,13 @@ trait HasRole
     /**
      * Detach role from a user.
      *
-     * @param string|\fixroles\Roles\Models\Role $role
      * @return bool
      */
-    public function detachRole($role)
+    public function detachRole()
     {
-        if($this->role_id == $this->getRole($role)->id)
-        {
-        	$this->role = null;
-            $this->role_id = -1;
-            return $this->save();
-        }
-
-        return false;
+        $this->role = null;
+        $this->role_id = -1;
+        return $this->save();
     }
 
     /**
