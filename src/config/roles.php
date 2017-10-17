@@ -17,54 +17,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Slug Separator
-    |--------------------------------------------------------------------------
-    |
-    | Here you can change the slug separator. This is very important in matter
-    | of magic method __call() and also a `Slugable` trait. The default value
-    | is a dot.
-    |
-    */
-
-    'separator' => '.',
-
-    /*
-    |--------------------------------------------------------------------------
     | Models
     |--------------------------------------------------------------------------
     |
     | If you want, you can replace default models from this package by models
-    | you created. Have a look at `fixroles\Roles\Models\Role` model and
-    | `fixroles\Roles\Models\Permission` model.
+    | you created. Have a look at `fixroles\Roles\Models\Role` model
     |
     */
 
     'models' => [
-        'role' => Selfreliance\fixroles\Models\Role::class,
-        'permission' => Selfreliance\fixroles\Models\Permission::class,
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Roles, Permissions and Allowed "Pretend"
-    |--------------------------------------------------------------------------
-    |
-    | You can pretend or simulate package behavior no matter what is in your
-    | database. It is really useful when you are testing you application.
-    | Set up what will methods is(), can() and allowed() return.
-    |
-    */
-
-    'pretend' => [
-
-        'enabled' => false,
-
-        'options' => [
-            'isRole' => true,
-            'can' => true,
-            'allowed' => true,
-        ],
-
-    ],
-
+        'role' => Selfreliance\fixroles\Models\Role::class
+    ]
 ];

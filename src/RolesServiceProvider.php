@@ -18,13 +18,13 @@ class RolesServiceProvider extends ServiceProvider
         ], 'config');
 
         $this->publishes([
-            __DIR__ . '/migrations/' => base_path('/database/migrations')
-        ], 'migrations');
-
-        $this->publishes([
-        	__DIR__. '/seed/CreateOrAttachAdmin.php' => base_path('/database/seeds/CreateOrAttachAdmin.php')
+            __DIR__ . '/seeds/CreateOrAttachAdmin.php' => database_path('seeds/CreateOrAttachAdmin.php')
         ], 'seed');
 
+        $this->publishes([
+            __DIR__ . '/migrations/' => database_path('migrations')
+        ], 'migrations');
+        
         $this->registerBladeExtensions();
     }
 
@@ -46,38 +46,12 @@ class RolesServiceProvider extends ServiceProvider
     protected function registerBladeExtensions()
     {
         $blade = $this->app['view']->getEngineResolver()->resolve('blade')->getCompiler();
-
-        $blade->directive('role', function ($expression) {
-            return "<?php if (Auth::check() && Auth::user()->isRole{$expression}): ?>";
+        
+        $blade->directive('checkadmin', function ($prefix) {
+            return "<?php if (Auth::check() && Auth::user()->checkAdmin()): ?>";
         });
 
-        $blade->directive('endrole', function () {
-            return "<?php endif; ?>";
-        });
-
-        $blade->directive('permission', function ($expression) {
-            return "<?php if (Auth::check() && Auth::user()->can{$expression}): ?>";
-        });
-
-        $blade->directive('endpermission', function () {
-            return "<?php endif; ?>";
-        });
-
-        $blade->directive('level', function ($expression) {
-            $level = trim($expression, '()');
-
-            return "<?php if (Auth::check() && Auth::user()->level() >= {$level}): ?>";
-        });
-
-        $blade->directive('endlevel', function () {
-            return "<?php endif; ?>";
-        });
-
-        $blade->directive('allowed', function ($expression) {
-            return "<?php if (Auth::check() && Auth::user()->allowed{$expression}): ?>";
-        });
-
-        $blade->directive('endallowed', function () {
+        $blade->directive('endcheck', function () {
             return "<?php endif; ?>";
         });
     }
