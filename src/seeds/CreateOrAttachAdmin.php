@@ -30,7 +30,7 @@ class CreateOrAttachAdmin extends Seeder
                 'accessible_pages' => json_encode($accessible)
             ]);
 
-            $user = User::findOrFail(19);
+            $user = User::findOrFail(1);
             $user->attachRole($adminRole->id);
             
             DB::table('admin__menu')->insert([
