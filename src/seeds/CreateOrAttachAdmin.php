@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Selfreliance\adminrole\AdminRoleController;
 use Selfreliance\fixroles\Models\Role;
 use App\User;
+use DB;
 use Config as config;
 
 class CreateOrAttachAdmin extends Seeder
@@ -29,10 +30,10 @@ class CreateOrAttachAdmin extends Seeder
                 'accessible_pages' => json_encode($accessible)
             ]);
 
-            $user = User::findOrFail(1);
+            $user = User::findOrFail(19);
             $user->attachRole($adminRole->id);
             
-            \DB::table('admin__menu')->insert([
+            DB::table('admin__menu')->insert([
                 ['title' => 'Заголовок', 'package' => 'none', 'icon' => '', 'parent' => 0, 'sort' => 0],
                 ['title' => 'Меню', 'package' => 'adminmenu', 'icon' => 'mdi mdi-menu', 'parent' => 0, 'sort' => 1],
                 ['title' => 'Роли', 'package' => 'adminrole', 'icon' => 'mdi mdi-key', 'parent' => 0, 'sort' => 2]

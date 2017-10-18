@@ -22,6 +22,8 @@ use Selfreliance\fixroles\Contracts\HasRole as HasRoleContract;
 class User extends Authenticatable implements HasRoleContract
 {
 	use HasRole;
+	protected $fillable = [
+		'role_id'
 ```
 
 Edit model Kernel (App/Http/Kernel.php)
