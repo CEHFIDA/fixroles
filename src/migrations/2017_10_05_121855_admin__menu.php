@@ -31,6 +31,6 @@ class AdminMenu extends Migration
      */
     public function down()
     {
-        Schema::drop('admin__menu');
+        Schema::dropIfExists('admin__menu');
     }
 }
