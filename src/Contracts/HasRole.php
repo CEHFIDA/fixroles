@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 interface HasRole
 {
     /**
-     * @return \Illuminate\Database\Eloquent\Collection
+     * Get a role where id, slug or name is equal to the $role
+     *
      * @param string $role
-     * @return model role
+     * @return object role
      */
     public function getRole($role);
 
@@ -25,22 +26,24 @@ interface HasRole
      * Attach role to a user.
      *
      * @param string $role
-     * @return bool|null
+     * @return bool
      */
     public function attachRole($role);
 
     /**
      * Detach role from a user.
      *
+     * @param string $role
      * @return bool
      */
-    public function detachRole();
+    public function detachRole($role);
 
     /**
-     * Check if the user role have $prefix
+     * Check if the user role has the specified prefix
      *
      * @param string $prefix
+     * @param bool $return_pages
      * @return bool
      */
-    public function checkRole($prefix);
+    public function checkRole($prefix, $return_pages);
 }

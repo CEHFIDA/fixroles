@@ -13,19 +13,5 @@ return [
     |
     */
 
-    'connection' => null,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Models
-    |--------------------------------------------------------------------------
-    |
-    | If you want, you can replace default models from this package by models
-    | you created. Have a look at `fixroles\Roles\Models\Role` model
-    |
-    */
-
-    'models' => [
-        'role' => Selfreliance\fixroles\Models\Role::class
-    ]
+    'connection' => null
 ];

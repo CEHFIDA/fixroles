@@ -3,9 +3,9 @@
 namespace selfreliance\fixroles\Traits;
 
 use Illuminate\Database\Eloquent\Model;
+use Selfreliance\fixroles\Models\Role;
 use Illuminate\Support\Str;
 use DB;
-use Selfreliance\fixroles\Models\Role;
 
 trait HasRole
 {
@@ -21,7 +21,7 @@ trait HasRole
      */
     public function getRole($role)
     {
-        return (!$this->role) ? Role::where('id', $role)->orWhere('slug', $role)->first() : $this->role;
+        return (!$this->role) ? Role::where('id', $role)->orWhere('name', $role)->orWhere('slug', $role)->first() : $this->role;
     }
 
     /**
@@ -38,13 +38,13 @@ trait HasRole
     /**
      * Attach role to a user.
      *
-     * @param string|\fixroles\Roles\Models\Role $role
+     * @param string $role
      * @return bool
      */
     public function attachRole($role)
     {
         $role = $this->getRole($role);
-        if($role->id)
+        if(!$role->isEmpty())
         {
             $this->role = null;
             $this->role_id = $role->id;
@@ -57,26 +57,33 @@ trait HasRole
     /**
      * Detach role from a user.
      *
+     * @param string $role
      * @return bool
      */
-    public function detachRole()
+    public function detachRole($role)
     {
-        $this->role = null;
-        $this->role_id = -1;
-        return $this->save();
+        $role = $this->getRole($role);
+        if(!$role->isEmpty())
+        {
+            $this->role = null;
+            $this->role_id = -1;
+            return $this->save();
+        }
+
+        return false;
     }
 
     /**
-     * Check if the user role have $prefix
+     * Check if the user role has the specified prefix
      *
      * @param string $prefix
      * @return bool
      */
-    public function checkRole($prefix)
+    public function checkRole($prefix, $return_pages)
     {
         $role = $this->getRole($this->role_id);
         $pages = json_decode($role->accessible_pages);
-        if(!is_null($role) && in_array($prefix, $pages)) return true;
+        if(!is_null($role) && in_array($prefix, $pages)) return ($return_pages) ? $pages : true;
 
         return false;
     }
