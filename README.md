@@ -99,6 +99,6 @@ if($user->hasRole($adminRole->id)) // you can pass id, name or slug
 There are four Blade extensions. Basically, it is replacement for classic if statements.
 
 ```php
-@checkrole('checkrole', 'admin') // @if(Auth::check() && Auth::user()->checkRole($prefix))
+@checkrole('admin') // @if(Auth::check() && Auth::user()->checkRole($prefix))
     // user role has the specified prefix => admin
 @endcheck
