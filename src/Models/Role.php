@@ -30,4 +30,9 @@ class Role extends Model
             $this->connection = $connection;
         }
     }
+
+    public static function getRole($role)
+    {
+        return Role::where('id', $role)->orWhere('name', $role)->orWhere('slug', $role)->first();
+    }
 }
