@@ -5,7 +5,6 @@ namespace selfreliance\fixroles\Traits;
 use Illuminate\Database\Eloquent\Model;
 use Selfreliance\fixroles\Models\Role;
 use Illuminate\Support\Str;
-use DB;
 
 trait HasRole
 {
@@ -77,13 +76,16 @@ trait HasRole
      * Check if the user role has the specified prefix
      *
      * @param string $prefix
-     * @return bool
+     * @return pages/bool
      */
     public function checkRole($prefix, $return_pages)
     {
         $role = $this->getRole($this->role_id);
-        $pages = json_decode($role->accessible_pages);
-        if(!is_null($role) && in_array($prefix, $pages)) return ($return_pages) ? $pages : true;
+        if($role)
+        {
+	        $pages = json_decode($role->accessible_pages);
+	        if(in_array($prefix, $pages)) return ($return_pages) ? $pages : true;
+        }
 
         return false;
     }

@@ -48,7 +48,7 @@ Transfer from protected $middlewareGroups to protected $middleware
 Add to $routeMiddleware
 
 ```
-'CheckAccess' => \App\Http\Middleware\CheckAccess::class
+'CheckAccess' => \Selfreliance\Adminamazing\middleware\CheckAccess::class
 ```
 
 ## Usage
