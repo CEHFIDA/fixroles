@@ -43,7 +43,7 @@ trait HasRole
     public function attachRole($role)
     {
         $role = $this->getRole($role);
-        if($role)
+        if($this->role_id != $role->id)
         {
             $this->role = null;
             $this->role_id = $role->id;
@@ -62,7 +62,7 @@ trait HasRole
     public function detachRole($role)
     {
         $role = $this->getRole($role);
-        if($role)
+        if($this->role_id == $role->id)
         {
             $this->role = null;
             $this->role_id = -1;
@@ -84,6 +84,8 @@ trait HasRole
         if($role)
         {
 	        $pages = json_decode($role->accessible_pages);
+            $brokenPiece = explode('/', $prefix);
+	        $prefix = $brokenPiece[1] ?? $brokenPiece[0];
 	        if(in_array($prefix, $pages)) return ($return_pages) ? $pages : true;
         }
 
