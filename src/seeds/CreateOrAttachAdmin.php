@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Selfreliance\adminrole\AdminRoleController;
 use Selfreliance\fixroles\Models\Role;
 use App\User;
 use Config as config;
@@ -15,8 +14,8 @@ class CreateOrAttachAdmin extends Seeder
      */
     public function run()
     {
-    	if(!AdminRoleController::checkExistRole('admin')) // if role is not created
-    	{
+        if(!Role::getRole('admin'))
+        {
             $accessible = array(
                 config('adminamazing.path'),
                 "adminrole",
@@ -37,6 +36,6 @@ class CreateOrAttachAdmin extends Seeder
                 ['title' => 'Меню', 'package' => 'adminmenu', 'icon' => 'mdi mdi-menu', 'parent' => 0, 'sort' => 1],
                 ['title' => 'Роли', 'package' => 'adminrole', 'icon' => 'mdi mdi-key', 'parent' => 0, 'sort' => 2]
             ]);
-    	}
+        }
     }
 }

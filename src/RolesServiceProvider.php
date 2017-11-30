@@ -21,9 +21,7 @@ class RolesServiceProvider extends ServiceProvider
             __DIR__ . '/seeds/CreateOrAttachAdmin.php' => database_path('seeds/CreateOrAttachAdmin.php')
         ], 'seed');
 
-        $this->publishes([
-            __DIR__ . '/migrations/' => database_path('migrations')
-        ], 'migrations');
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
         
         $this->registerBladeExtensions();
     }
